@@ -7,6 +7,7 @@ import { SpaceGrotesk_700Bold } from '@expo-google-fonts/space-grotesk';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { useAuthStore } from '../store/useAuthStore';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import '../global.css';
 
 // Prevent splash screen from auto-hiding before fonts are loaded
@@ -48,20 +49,22 @@ export default function RootLayout() {
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1, backgroundColor: '#0F0E17' }}>
-      <StatusBar style="light" />
-      <Stack
-        screenOptions={{
-          headerShown: false,
-          contentStyle: { backgroundColor: '#0F0E17' },
-        }}
-      >
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        <Stack.Screen name="(main)" options={{ headerShown: false }} />
-        <Stack.Screen name="course/[id]" options={{ headerShown: false }} />
-        <Stack.Screen name="course/lesson/[lessonId]" options={{ headerShown: false }} />
-        <Stack.Screen name="course/lesson/game/[lessonId]" options={{ headerShown: false }} />
-      </Stack>
+    <GestureHandlerRootView style={{ flex: 1, backgroundColor: '#F0F7FF' }}>
+      <SafeAreaProvider>
+        <StatusBar style="dark" />
+        <Stack
+          screenOptions={{
+            headerShown: false,
+            contentStyle: { backgroundColor: '#F0F7FF' },
+          }}
+        >
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+          <Stack.Screen name="(main)" options={{ headerShown: false }} />
+          <Stack.Screen name="course/[id]" options={{ headerShown: false }} />
+          <Stack.Screen name="course/lesson/[lessonId]" options={{ headerShown: false }} />
+          <Stack.Screen name="course/lesson/game/[lessonId]" options={{ headerShown: false }} />
+        </Stack>
+      </SafeAreaProvider>
     </GestureHandlerRootView>
   );
 }
