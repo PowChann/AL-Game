@@ -106,7 +106,7 @@ export default function GameScreen() {
   const progressPercentage = ((currentIndex + (isAnswerChecked ? 1 : 0)) / quizQuestions.length) * 100;
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#0F0E17' }}>
+    <View style={{ flex: 1, backgroundColor: '#F0F7FF' }}>
       {/* Header bar */}
       <View
         style={{
@@ -117,12 +117,12 @@ export default function GameScreen() {
           alignItems: 'center',
           justifyContent: 'space-between',
           borderBottomWidth: 1,
-          borderBottomColor: '#252438',
-          backgroundColor: '#0F0E17',
+          borderBottomColor: '#E5E7EB',
+          backgroundColor: '#FFFFFF',
         }}
       >
         <Pressable onPress={handleBackToCourse} className="p-2 -ml-2">
-          <Ionicons name="close" size={24} color="#FFFFFE" />
+          <Ionicons name="close" size={24} color="#4A9FD4" />
         </Pressable>
         <Text className="text-textMuted font-bold font-body text-sm">
           Bài tập đánh giá
@@ -134,7 +134,7 @@ export default function GameScreen() {
 
       {/* Progress Bar */}
       <View className="px-5 py-3">
-        <ProgressBar progress={progressPercentage} color="#6C63FF" />
+        <ProgressBar progress={progressPercentage} color="#4A9FD4" />
       </View>
 
       <ScrollView
@@ -159,16 +159,16 @@ export default function GameScreen() {
               const isSelected = selectedOption === idx;
               const isCorrectOption = idx === currentQuestion.correctIndex;
 
-              let borderStyle = 'border-[#252438] bg-cardBg';
+              let borderStyle = 'border-borderLight bg-cardBg';
               let checkIcon: React.ReactNode = null;
 
               if (isAnswerChecked) {
                 if (isCorrectOption) {
                   borderStyle = 'border-success bg-success/10';
-                  checkIcon = <Ionicons name="checkmark-circle" size={20} color="#2CB67D" />;
+                  checkIcon = <Ionicons name="checkmark-circle" size={20} color="#2ECC71" />;
                 } else if (isSelected) {
                   borderStyle = 'border-danger bg-danger/10';
-                  checkIcon = <Ionicons name="close-circle" size={20} color="#FF4D6D" />;
+                  checkIcon = <Ionicons name="close-circle" size={20} color="#E74C3C" />;
                 }
               } else if (isSelected) {
                 borderStyle = 'border-primary bg-primary/10';
@@ -179,7 +179,7 @@ export default function GameScreen() {
                   key={idx}
                   onPress={() => handleOptionSelect(idx)}
                   disabled={isAnswerChecked}
-                  className={`flex-row items-center justify-between p-4 rounded-[12px] border ${borderStyle} active:opacity-90`}
+                  className={`flex-row items-center justify-between p-4 rounded-[16px] border ${borderStyle} active:opacity-90`}
                 >
                   <Text
                     className={`flex-1 text-sm font-body leading-relaxed mr-2 ${
@@ -196,7 +196,7 @@ export default function GameScreen() {
             })}
           </View>
         ) : (
-          <View className="mb-6 bg-cardBg border border-[#252438] rounded-[16px] p-4 min-h-[220px] justify-between">
+          <View className="mb-6 bg-cardBg border border-borderLight rounded-[16px] p-4 min-h-[220px] justify-between">
             <DuoDragDrop
               key={currentIndex}
               ref={duoRef}
@@ -207,7 +207,7 @@ export default function GameScreen() {
             />
 
             {isAnswerChecked && (
-              <View className="mt-4 p-3.5 bg-darkBg border border-[#252438] rounded-[12px]">
+              <View className="mt-4 p-3.5 bg-darkBg border border-borderLight rounded-[16px]">
                 <Text className="text-textMuted font-body text-[10px] mb-1">Đáp án đúng:</Text>
                 <Text className="text-success font-bold font-body text-sm">
                   {currentQuestion.correctOrder
@@ -230,9 +230,9 @@ export default function GameScreen() {
           paddingBottom: insets.bottom + 12,
           paddingTop: 12,
           paddingHorizontal: 20,
-          backgroundColor: '#0F0E17',
+          backgroundColor: '#FFFFFF',
           borderTopWidth: 1,
-          borderTopColor: '#252438',
+          borderTopColor: '#E5E7EB',
         }}
       >
         <Button

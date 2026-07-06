@@ -102,7 +102,7 @@ export default function LessonVideoScreen() {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        style={{ flex: 1, backgroundColor: '#0F0E17' }}
+        style={{ flex: 1, backgroundColor: '#F0F7FF' }}
       >
         {/* Custom Header */}
         <View
@@ -113,12 +113,12 @@ export default function LessonVideoScreen() {
             flexDirection: 'row',
             alignItems: 'center',
             borderBottomWidth: 1,
-            borderBottomColor: '#252438',
-            backgroundColor: '#0F0E17',
+            borderBottomColor: '#E5E7EB',
+            backgroundColor: '#FFFFFF',
           }}
         >
           <Pressable onPress={() => router.back()} className="p-2 -ml-2 mr-2">
-            <Ionicons name="arrow-back" size={24} color="#FFFFFE" />
+            <Ionicons name="arrow-back" size={24} color="#4A9FD4" />
           </Pressable>
           <Text className="text-textMain font-heading font-bold text-base flex-1" numberOfLines={1}>
             Bài {lesson.order}: {lesson.title}
@@ -139,12 +139,12 @@ export default function LessonVideoScreen() {
             {/* Simulated Play/Pause Big Center Button */}
             <Pressable
               onPress={() => setIsPlaying(!isPlaying)}
-              className="w-16 h-16 rounded-full bg-primary/90 border border-primary/20 items-center justify-center z-20 shadow-lg active:scale-95"
+              className="w-16 h-16 rounded-full bg-primary border border-primary/20 items-center justify-center z-20 shadow-lg active:scale-95"
             >
               <Ionicons
                 name={isPlaying ? 'pause' : 'play'}
                 size={28}
-                color="#FFFFFE"
+                color="#FFFFFF"
                 style={!isPlaying ? { marginLeft: 4 } : {}}
               />
             </Pressable>
@@ -167,7 +167,7 @@ export default function LessonVideoScreen() {
               {/* Progress Line */}
               <View className="flex-1 h-1 bg-white/20 rounded-full overflow-hidden">
                 <Animated.View
-                  style={[{ height: '100%', backgroundColor: '#6C63FF' }, progressBarAnimatedStyle]}
+                  style={[{ height: '100%', backgroundColor: '#4A9FD4' }, progressBarAnimatedStyle]}
                 />
               </View>
 
@@ -190,7 +190,7 @@ export default function LessonVideoScreen() {
               {lesson.description || 'Trong bài học này, bạn sẽ nắm bắt được các kiến thức trọng tâm để rèn luyện kỹ năng và giải quyết các bài tập đánh giá năng lực.'}
             </Text>
 
-            <View className="h-[1px] bg-surface w-full mb-6" />
+            <View className="h-[1px] bg-borderLight w-full mb-6" />
 
             {/* Notes Section */}
             <View className="mb-4">
@@ -201,10 +201,10 @@ export default function LessonVideoScreen() {
                 value={notes}
                 onChangeText={setNotes}
                 placeholder="Nhập ghi chú quan trọng từ bài học..."
-                placeholderTextColor="#A7A9BE"
+                placeholderTextColor="#6B7280"
                 multiline
                 numberOfLines={4}
-                className="w-full bg-cardBg border border-[#252438] rounded-[12px] p-4 text-textMain font-body text-sm text-left align-top h-32"
+                className="w-full bg-cardBg border border-borderLight rounded-[16px] p-4 text-textMain font-body text-sm text-left align-top h-32"
                 style={{ textAlignVertical: 'top' }}
               />
             </View>
@@ -221,20 +221,20 @@ export default function LessonVideoScreen() {
             paddingBottom: insets.bottom + 12,
             paddingTop: 12,
             paddingHorizontal: 20,
-            backgroundColor: '#0F0E17',
+            backgroundColor: '#FFFFFF',
             borderTopWidth: 1,
-            borderTopColor: '#252438',
+            borderTopColor: '#E5E7EB',
           }}
         >
           {progress < 100 ? (
             <Pressable
               disabled
               style={{
-                backgroundColor: '#252438',
-                borderRadius: 12,
+                backgroundColor: '#E5E7EB',
+                borderRadius: 16,
                 paddingVertical: 16,
                 alignItems: 'center',
-                opacity: 0.5,
+                opacity: 0.7,
               }}
             >
               <Text className="text-textMuted font-bold font-body text-sm">

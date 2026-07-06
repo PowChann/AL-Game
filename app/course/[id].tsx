@@ -44,7 +44,7 @@ export default function CourseDetailScreen() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#0F0E17' }}>
+    <View style={{ flex: 1, backgroundColor: '#F0F7FF' }}>
       {/* Custom Overlapping Header */}
       <View
         style={{
@@ -73,7 +73,7 @@ export default function CourseDetailScreen() {
           <Ionicons
             name={isSaved ? 'heart' : 'heart-outline'}
             size={22}
-            color={isSaved ? '#FF4D6D' : '#FFFFFE'}
+            color={isSaved ? '#E74C3C' : '#FFFFFF'}
           />
         </Pressable>
       </View>
@@ -92,11 +92,11 @@ export default function CourseDetailScreen() {
           <View className="absolute inset-0 bg-black/10" />
           <Pressable
             onPress={() => alert('Phát trailer giới thiệu khóa học!')}
-            className="w-16 h-16 rounded-full bg-primary/95 border border-primary/20 items-center justify-center shadow-lg active:scale-95"
+            className="w-16 h-16 rounded-full bg-primary border border-primary/20 items-center justify-center shadow-lg active:scale-95"
           >
-            <Ionicons name="play" size={28} color="#FFFFFE" style={{ marginLeft: 4 }} />
+            <Ionicons name="play" size={28} color="#FFFFFF" style={{ marginLeft: 4 }} />
           </Pressable>
-          <Text className="absolute bottom-4 left-4 text-[10px] font-bold font-body text-[#FFFFFE] bg-black/40 px-3 py-1 rounded-full">
+          <Text className="absolute bottom-4 left-4 text-[10px] font-bold font-body text-[#FFFFFF] bg-black/40 px-3 py-1 rounded-full">
             PLAY PREVIEW
           </Text>
         </View>
@@ -109,7 +109,7 @@ export default function CourseDetailScreen() {
               variant={course.level === 'Cơ bản' ? 'primary' : course.level === 'Trung cấp' ? 'warning' : 'danger'}
             />
             <View className="flex-row items-center">
-              <Ionicons name="star" size={14} color="#FF8906" style={{ marginRight: 3 }} />
+              <Ionicons name="star" size={14} color="#F5A623" style={{ marginRight: 3 }} />
               <Text className="text-accent text-sm font-bold font-body">{course.rating}</Text>
               <Text className="text-textMuted text-xs font-body ml-2">
                 · {course.students} học viên
@@ -136,11 +136,11 @@ export default function CourseDetailScreen() {
             </Pressable>
           </View>
 
-          <View className="h-[1px] bg-surface w-full mb-6" />
+          <View className="h-[1px] bg-borderLight w-full mb-6" />
 
           {/* Progress Block */}
           {course.progress > 0 && (
-            <View className="bg-cardBg border border-[#252438] rounded-[16px] p-4 mb-6">
+            <View className="bg-cardBg border border-borderLight rounded-[16px] p-4 mb-6">
               <View className="flex-row justify-between items-center mb-2">
                 <Text className="text-textMain font-heading font-bold text-sm">
                   Tiến độ của bạn
@@ -179,9 +179,9 @@ export default function CourseDetailScreen() {
           paddingBottom: insets.bottom + 12,
           paddingTop: 12,
           paddingHorizontal: 20,
-          backgroundColor: '#0F0E17',
+          backgroundColor: '#FFFFFF',
           borderTopWidth: 1,
-          borderTopColor: '#252438',
+          borderTopColor: '#E5E7EB',
         }}
       >
         <Button
@@ -195,9 +195,9 @@ export default function CourseDetailScreen() {
       {/* Locked Lesson Modal */}
       <Modal visible={lockModalVisible} transparent animationType="fade">
         <View className="flex-1 bg-black/60 items-center justify-center px-6">
-          <View className="bg-cardBg border border-[#252438] rounded-[24px] p-6 w-full items-center">
-            <View className="w-14 h-14 bg-surface rounded-full items-center justify-center mb-4">
-              <Ionicons name="lock-closed" size={28} color="#FF8906" />
+          <View className="bg-cardBg border border-borderLight rounded-[24px] p-6 w-full items-center">
+            <View className="w-14 h-14 bg-gray-100 rounded-full items-center justify-center mb-4">
+              <Ionicons name="lock-closed" size={28} color="#F5A623" />
             </View>
             <Text className="text-textMain font-heading font-bold text-xl text-center mb-2">
               Bài học đang bị khóa!
