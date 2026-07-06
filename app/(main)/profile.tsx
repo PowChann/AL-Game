@@ -31,11 +31,11 @@ export default function ProfileScreen() {
   ];
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#F0F7FF' }}>
+    <View style={{ flex: 1, backgroundColor: '#F0F7FF', paddingTop: safeTop }}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
-          paddingTop: safeTop + 16,
+          paddingTop: 16,
           paddingBottom: insets.bottom + 16,
           paddingHorizontal: 20,
         }}

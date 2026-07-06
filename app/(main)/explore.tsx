@@ -37,13 +37,13 @@ export default function ExploreScreen() {
   });
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#F0F7FF' }}>
+    <View style={{ flex: 1, backgroundColor: '#F0F7FF', paddingTop: safeTop }}>
       <FlatList
         data={filteredCourses}
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
-          paddingTop: safeTop + 16,
+          paddingTop: 16,
           paddingBottom: insets.bottom + 16,
           paddingHorizontal: 20,
         }}

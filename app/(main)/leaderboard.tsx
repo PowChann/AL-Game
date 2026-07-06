@@ -25,13 +25,13 @@ export default function LeaderboardScreen() {
   const safeTop = insets.top > 0 ? insets.top : (Platform.OS === 'android' ? RNStatusBar.currentHeight || 24 : 20);
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#F0F7FF' }}>
+    <View style={{ flex: 1, backgroundColor: '#F0F7FF', paddingTop: safeTop }}>
       <FlatList
         data={MOCK_LEADERBOARD}
         keyExtractor={(item) => item.rank.toString()}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
-          paddingTop: safeTop + 16,
+          paddingTop: 16,
           paddingBottom: insets.bottom + 16,
           paddingHorizontal: 20,
         }}
