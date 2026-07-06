@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, Text, View, Pressable } from 'react-native';
+import { ScrollView, Text, View, Pressable, Platform, StatusBar as RNStatusBar } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
@@ -12,6 +12,7 @@ import { CourseProgress } from '../../components/course/CourseProgress';
 
 export default function ProfileScreen() {
   const insets = useSafeAreaInsets();
+  const safeTop = insets.top > 0 ? insets.top : (Platform.OS === 'android' ? RNStatusBar.currentHeight || 24 : 20);
   const router = useRouter();
   const logout = useAuthStore((state) => state.logout);
 
@@ -30,11 +31,11 @@ export default function ProfileScreen() {
   ];
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#0F0E17' }}>
+    <View style={{ flex: 1, backgroundColor: '#F0F7FF' }}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
-          paddingTop: insets.top + 16,
+          paddingTop: safeTop + 16,
           paddingBottom: insets.bottom + 16,
           paddingHorizontal: 20,
         }}
@@ -62,12 +63,12 @@ export default function ProfileScreen() {
         </Text>
         <View className="gap-y-3 mb-6">
           <View className="flex-row justify-between">
-            <ScoreBadge icon="flame" iconColor="#FF8906" value={MOCK_USER.streak} label="Streak ngày" className="mr-1.5" />
-            <ScoreBadge icon="star" iconColor="#FF8906" value={MOCK_USER.xp} label="Tổng số XP" className="ml-1.5" />
+            <ScoreBadge icon="flame" iconColor="#F5A623" value={MOCK_USER.streak} label="Streak ngày" className="mr-1.5" />
+            <ScoreBadge icon="star" iconColor="#1A6FB5" value={MOCK_USER.xp} label="Tổng số XP" className="ml-1.5" />
           </View>
           <View className="flex-row justify-between">
-            <ScoreBadge icon="checkmark-circle" iconColor="#2CB67D" value={MOCK_USER.completedLessons} label="Bài đã hoàn thành" className="mr-1.5" />
-            <ScoreBadge icon="trophy" iconColor="#F59E0B" value={MOCK_USER.badges} label="Danh hiệu đạt được" className="ml-1.5" />
+            <ScoreBadge icon="checkmark-circle" iconColor="#2ECC71" value={MOCK_USER.completedLessons} label="Bài đã hoàn thành" className="mr-1.5" />
+            <ScoreBadge icon="trophy" iconColor="#F5A623" value={MOCK_USER.badges} label="Danh hiệu đạt được" className="ml-1.5" />
           </View>
         </View>
 
@@ -85,19 +86,19 @@ export default function ProfileScreen() {
         <Text className="text-textMain font-heading font-bold text-lg mb-3">
           Cài đặt hệ thống
         </Text>
-        <View className="bg-cardBg border border-[#252438] rounded-[16px] overflow-hidden mb-6">
+        <View className="bg-cardBg border border-borderLight rounded-[16px] overflow-hidden mb-6">
           {menuItems.map((item, index) => (
             <Pressable
               key={index}
               onPress={item.action}
-              className="flex-row items-center justify-between p-4 active:bg-surface border-b border-[#252438]"
+              className="flex-row items-center justify-between p-4 active:bg-surface border-b border-borderLight"
               style={index === menuItems.length - 1 ? { borderBottomWidth: 0 } : {}}
             >
               <View className="flex-row items-center">
-                <Ionicons name={item.icon as any} size={20} color="#A7A9BE" style={{ marginRight: 12 }} />
+                <Ionicons name={item.icon as any} size={20} color="#6B7280" style={{ marginRight: 12 }} />
                 <Text className="text-textMain font-body text-sm">{item.label}</Text>
               </View>
-              <Ionicons name="chevron-forward" size={16} color="#A7A9BE" />
+              <Ionicons name="chevron-forward" size={16} color="#6B7280" />
             </Pressable>
           ))}
         </View>

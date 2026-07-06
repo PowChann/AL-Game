@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, Text, View, Pressable, FlatList } from 'react-native';
+import { ScrollView, Text, View, Pressable, FlatList, Platform, StatusBar as RNStatusBar } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
@@ -11,6 +11,7 @@ import { ProgressBar } from '../../components/ui/ProgressBar';
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
+  const safeTop = insets.top > 0 ? insets.top : (Platform.OS === 'android' ? RNStatusBar.currentHeight || 24 : 20);
   const router = useRouter();
 
   // Find active course for the banner
@@ -34,11 +35,11 @@ export default function HomeScreen() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#0F0E17' }}>
+    <View style={{ flex: 1, backgroundColor: '#F0F7FF' }}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
-          paddingTop: insets.top + 16,
+          paddingTop: safeTop + 16,
           paddingBottom: insets.bottom + 16,
           paddingHorizontal: 20,
         }}
@@ -55,49 +56,49 @@ export default function HomeScreen() {
           </View>
           <Pressable
             onPress={() => alert('Thông báo trống!')}
-            className="w-11 h-11 bg-cardBg border border-[#252438] rounded-full items-center justify-center active:opacity-75"
+            className="w-11 h-11 bg-cardBg border border-borderLight rounded-full items-center justify-center active:opacity-75"
           >
-            <Ionicons name="notifications" size={20} color="#FFFFFE" />
+            <Ionicons name="notifications" size={20} color="#4A9FD4" />
           </Pressable>
         </View>
 
         {/* Continue Learning Banner */}
         <Pressable
           onPress={handleContinueLearning}
-          className="bg-primary/95 border border-primary/20 rounded-[20px] p-5 mb-6 overflow-hidden relative active:opacity-95"
+          className="bg-primary border border-primary/20 rounded-[16px] p-5 mb-6 overflow-hidden relative active:opacity-95"
         >
           {/* Background subtle shape */}
           <View className="absolute -right-10 -bottom-10 w-40 h-40 rounded-full bg-white/10" />
           
           <View className="flex-row justify-between items-start mb-2">
             <View className="flex-1 mr-4">
-              <Text className="text-textMain/75 font-bold font-body text-[10px] tracking-wider uppercase mb-1">
+              <Text className="text-white/70 font-bold font-body text-[10px] tracking-wider uppercase mb-1">
                 Tiếp tục học
               </Text>
-              <Text className="text-textMain font-heading font-bold text-lg leading-tight" numberOfLines={1}>
+              <Text className="text-white font-heading font-bold text-lg leading-tight" numberOfLines={1}>
                 {activeCourse.title}
               </Text>
             </View>
-            <Ionicons name="play" size={24} color="#FFFFFE" />
+            <Ionicons name="play" size={24} color="#FFFFFF" />
           </View>
           
           <View className="mb-4">
             <View className="flex-row justify-between items-center mb-1.5">
-              <Text className="text-[#FFFFFE]/90 font-body text-xs font-medium">
+              <Text className="text-white/80 font-body text-xs font-medium">
                 Bài {activeCourse.currentLesson}/{activeCourse.lessonsCount}
               </Text>
-              <Text className="text-[#FFFFFE]/90 font-bold font-body text-xs">
+              <Text className="text-white/90 font-bold font-body text-xs">
                 {activeCourse.progress}% hoàn thành
               </Text>
             </View>
-            <ProgressBar progress={activeCourse.progress} color="#FFFFFE" />
+            <ProgressBar progress={activeCourse.progress} color="#FFFFFF" />
           </View>
           
           <View className="flex-row items-center">
-            <Text className="text-[#FFFFFE] font-bold font-body text-xs mr-1" numberOfLines={1}>
+            <Text className="text-white font-bold font-body text-xs mr-1" numberOfLines={1}>
               Học tiếp: Bài {currentLesson?.order} · {currentLesson?.title}
             </Text>
-            <Ionicons name="arrow-forward" size={12} color="#FFFFFE" />
+            <Ionicons name="arrow-forward" size={12} color="#FFFFFF" />
           </View>
         </Pressable>
 
@@ -106,9 +107,9 @@ export default function HomeScreen() {
           Thống kê hôm nay
         </Text>
         <View className="flex-row justify-between mb-6">
-          <ScoreBadge icon="flame" iconColor="#FF8906" value={MOCK_USER.streak} label="Streak ngày" />
-          <ScoreBadge icon="star" iconColor="#FF8906" value={MOCK_USER.xp} label="XP tích lũy" />
-          <ScoreBadge icon="checkmark-circle" iconColor="#2CB67D" value={MOCK_USER.completedLessons} label="Bài đã xong" />
+          <ScoreBadge icon="flame" iconColor="#F5A623" value={MOCK_USER.streak} label="Streak ngày" />
+          <ScoreBadge icon="star" iconColor="#1A6FB5" value={MOCK_USER.xp} label="XP tích lũy" />
+          <ScoreBadge icon="checkmark-circle" iconColor="#2ECC71" value={MOCK_USER.completedLessons} label="Bài đã xong" />
         </View>
 
         {/* Featured Courses */}
