@@ -89,10 +89,18 @@ export default function GameScreen() {
 
   const handleBackToCourse = () => {
     setResultVisible(false);
-    router.replace({
-      pathname: '/course/[id]',
-      params: { id: '1' },
-    });
+    const isPassed = (score / quizQuestions.length) >= 0.7;
+    if (isPassed) {
+      router.replace({
+        pathname: '/course/[id]',
+        params: { id: '1' },
+      });
+    } else {
+      router.replace({
+        pathname: '/course/lesson/[lessonId]',
+        params: { lessonId: lessonId as string },
+      });
+    }
   };
 
   const handleNextLesson = () => {

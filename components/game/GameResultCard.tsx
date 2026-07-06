@@ -83,26 +83,36 @@ export const GameResultCard: React.FC<GameResultCardProps> = ({
           {/* Action Buttons */}
           <View className="w-full gap-y-3">
             {isPassed ? (
-              <Button
-                title="Học bài tiếp theo →"
-                onPress={onNextLesson}
-                variant="primary"
-                size="lg"
-              />
+              <>
+                <Button
+                  title="Học bài tiếp theo →"
+                  onPress={onNextLesson}
+                  variant="primary"
+                  size="lg"
+                />
+                <Button
+                  title="Về khóa học"
+                  onPress={onBackToCourse}
+                  variant="secondary"
+                  size="lg"
+                />
+              </>
             ) : (
-              <Button
-                title="Làm lại"
-                onPress={onRetry}
-                variant="primary"
-                size="lg"
-              />
+              <>
+                <Button
+                  title="Làm lại bài tập"
+                  onPress={onRetry}
+                  variant="primary"
+                  size="lg"
+                />
+                <Button
+                  title="◀ Xem lại bài giảng"
+                  onPress={onBackToCourse} // Sẽ kích hoạt router.back() để quay lại xem video
+                  variant="secondary"
+                  size="lg"
+                />
+              </>
             )}
-            <Button
-              title="Về khóa học"
-              onPress={onBackToCourse}
-              variant="secondary"
-              size="lg"
-            />
           </View>
         </Animated.View>
       </View>
