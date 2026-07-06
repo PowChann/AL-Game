@@ -98,20 +98,12 @@ export const GameResultCard: React.FC<GameResultCardProps> = ({
                 />
               </>
             ) : (
-              <>
-                <Button
-                  title="Làm lại bài tập"
-                  onPress={onRetry}
-                  variant="primary"
-                  size="lg"
-                />
-                <Button
-                  title="◀ Xem lại bài giảng"
-                  onPress={onBackToCourse} // Sẽ kích hoạt router.back() để quay lại xem video
-                  variant="secondary"
-                  size="lg"
-                />
-              </>
+              <Button
+                title="◀ Xem lại bài giảng"
+                onPress={onBackToCourse} // Sẽ kích hoạt quay lại xem video bài giảng
+                variant="primary"
+                size="lg"
+              />
             )}
           </View>
         </Animated.View>
