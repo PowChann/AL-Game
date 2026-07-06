@@ -32,7 +32,7 @@ export const Avatar: React.FC<AvatarProps> = ({ name, uri, size = 40 }) => {
         />
       ) : (
         <Text
-          style={{ fontSize, color: '#6C63FF' }}
+          style={{ fontSize, color: '#4A9FD4' }}
           className="font-bold font-heading text-center"
         >
           {getInitials(name)}

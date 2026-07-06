@@ -82,7 +82,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={`flex-row justify-center items-center ${bgStyle} ${sizeStyle} ${isInteractionDisabled ? 'opacity-40' : ''} ${className}`}
     >
       {loading ? (
-        <ActivityIndicator size="small" color={variant === 'secondary' || variant === 'ghost' ? '#6C63FF' : '#FFFFFE'} className="mr-2" />
+        <ActivityIndicator size="small" color={variant === 'secondary' || variant === 'ghost' ? '#4A9FD4' : '#FFFFFE'} className="mr-2" />
       ) : icon ? (
         <View className="mr-2">{icon}</View>
       ) : null}

@@ -11,7 +11,7 @@ interface ProgressBarProps {
 
 export const ProgressBar: React.FC<ProgressBarProps> = ({
   progress,
-  color = '#6C63FF',
+  color = '#4A9FD4',
   height = 8,
   showLabel = false,
 }) => {
@@ -31,7 +31,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   return (
     <View className="flex-row items-center w-full">
       <View
-        style={{ height, backgroundColor: '#252438' }}
+        style={{ height, backgroundColor: '#E5E7EB' }}
         className="flex-1 rounded-full overflow-hidden"
       >
         <Animated.View

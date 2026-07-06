@@ -11,7 +11,7 @@ export const Card: React.FC<CardProps> = ({ children, className = '', style }) =
   return (
     <View
       style={style}
-      className={`bg-cardBg rounded-[16px] p-4 border border-[#252438] ${className}`}
+      className={`bg-cardBg rounded-[16px] p-4 border border-borderLight ${className}`}
     >
       {children}
     </View>

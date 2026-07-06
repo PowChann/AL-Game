@@ -8,20 +8,20 @@ interface BadgeProps {
 }
 
 export const Badge: React.FC<BadgeProps> = ({ label, variant = 'primary', className = '' }) => {
-  let bgStyle = 'bg-[#6C63FF]/20';
+  let bgStyle = 'bg-[#4A9FD4]/10';
   let textStyle = 'text-primary';
 
   if (variant === 'success') {
-    bgStyle = 'bg-[#2CB67D]/20';
+    bgStyle = 'bg-[#2ECC71]/10';
     textStyle = 'text-success';
   } else if (variant === 'warning') {
-    bgStyle = 'bg-[#FF8906]/20';
+    bgStyle = 'bg-[#F5A623]/10';
     textStyle = 'text-accent';
   } else if (variant === 'danger') {
-    bgStyle = 'bg-[#FF4D6D]/20';
+    bgStyle = 'bg-[#E74C3C]/10';
     textStyle = 'text-danger';
   } else if (variant === 'neutral') {
-    bgStyle = 'bg-[#252438]/50';
+    bgStyle = 'bg-gray-100';
     textStyle = 'text-textMuted';
   }
 
