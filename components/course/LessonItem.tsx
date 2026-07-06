@@ -13,17 +13,20 @@ export const LessonItem: React.FC<LessonItemProps> = ({ lesson, onPress }) => {
   const isCurrent = lesson.status === 'current';
   const isLocked = lesson.status === 'locked';
 
-  let containerClass = 'flex-row items-center p-4 rounded-[12px] border border-[#252438] bg-cardBg mb-3';
-  let iconName: 'checkmark-circle' | 'play-circle' | 'lock-closed' = 'lock-closed';
-  let iconColor = '#A7A9BE';
+  let containerClass = 'flex-row items-center p-4 rounded-[16px] border border-borderLight bg-cardBg mb-3';
+  let iconWrapperClass = 'w-10 h-10 rounded-xl items-center justify-center bg-gray-100 mr-3.5';
+  let iconName: 'checkmark' | 'play' | 'lock-closed' = 'lock-closed';
+  let iconColor = '#6B7280';
 
   if (isCompleted) {
-    iconName = 'checkmark-circle';
-    iconColor = '#2CB67D';
+    iconName = 'checkmark';
+    iconColor = '#2ECC71';
+    iconWrapperClass = 'w-10 h-10 rounded-xl items-center justify-center bg-success/10 mr-3.5';
   } else if (isCurrent) {
-    containerClass = 'flex-row items-center p-4 rounded-[12px] border border-primary/40 bg-primary/10 mb-3';
-    iconName = 'play-circle';
-    iconColor = '#6C63FF';
+    containerClass = 'flex-row items-center p-4 rounded-[16px] border border-primary/30 bg-primary/5 mb-3';
+    iconName = 'play';
+    iconColor = '#4A9FD4';
+    iconWrapperClass = 'w-10 h-10 rounded-xl items-center justify-center bg-primary/10 mr-3.5';
   }
 
   return (
@@ -31,9 +34,9 @@ export const LessonItem: React.FC<LessonItemProps> = ({ lesson, onPress }) => {
       onPress={onPress}
       className={`${containerClass} ${isLocked ? 'opacity-60' : 'active:opacity-80'}`}
     >
-      {/* Icon block */}
-      <View className="mr-3.5">
-        <Ionicons name={iconName} size={24} color={iconColor} />
+      {/* Icon block inside rounded square with light bg */}
+      <View className={iconWrapperClass}>
+        <Ionicons name={iconName} size={20} color={iconColor} />
       </View>
 
       {/* Info block */}
@@ -50,7 +53,7 @@ export const LessonItem: React.FC<LessonItemProps> = ({ lesson, onPress }) => {
 
       {/* Duration block */}
       <View className="flex-row items-center">
-        <Ionicons name="time-outline" size={14} color="#A7A9BE" style={{ marginRight: 4 }} />
+        <Ionicons name="time-outline" size={14} color="#6B7280" style={{ marginRight: 4 }} />
         <Text className="text-textMuted text-xs font-body">{lesson.duration}</Text>
       </View>
     </Pressable>

@@ -45,7 +45,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, variant = 'horiz
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
         style={[animatedStyle]}
-        className="w-[200px] h-[165px] bg-cardBg rounded-[16px] border border-[#252438] overflow-hidden mr-4"
+        className="w-[200px] h-[165px] bg-cardBg rounded-[16px] border border-borderLight overflow-hidden mr-4"
       >
         {/* Color Banner */}
         <View style={{ backgroundColor: course.color }} className="h-16 w-full items-center justify-center relative">
@@ -83,7 +83,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, variant = 'horiz
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
       style={[animatedStyle]}
-      className="w-full bg-cardBg rounded-[16px] border border-[#252438] p-3.5 flex-row items-center mb-3"
+      className="w-full bg-cardBg rounded-[16px] border border-borderLight p-3.5 flex-row items-center mb-3"
     >
       {/* Thumbnail block */}
       <View style={{ backgroundColor: course.color }} className="w-16 h-16 rounded-[12px] items-center justify-center mr-4">

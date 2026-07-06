@@ -45,7 +45,7 @@ export const GameResultCard: React.FC<GameResultCardProps> = ({
       <View className="flex-1 bg-black/75 justify-end items-center px-4 pb-8">
         <Animated.View
           style={[animatedStyle]}
-          className="w-full bg-cardBg border border-[#252438] rounded-[24px] p-6 items-center"
+          className="w-full bg-cardBg border border-borderLight rounded-[24px] p-6 items-center"
         >
           {/* Icon */}
           <Text className="text-5xl mb-4 text-center">
@@ -63,7 +63,7 @@ export const GameResultCard: React.FC<GameResultCardProps> = ({
           </Text>
 
           {/* Score & Progress */}
-          <View className="w-full bg-darkBg border border-[#252438] rounded-[16px] p-4 mb-6">
+          <View className="w-full bg-darkBg border border-borderLight rounded-[16px] p-4 mb-6">
             <View className="flex-row justify-between items-center mb-2">
               <Text className="text-textMuted font-body text-xs">
                 Điểm của bạn
@@ -72,7 +72,7 @@ export const GameResultCard: React.FC<GameResultCardProps> = ({
                 {score} / {totalQuestions} ({Math.round(percentage)}%)
               </Text>
             </View>
-            <ProgressBar progress={percentage} color={isPassed ? '#2CB67D' : '#FF4D6D'} />
+            <ProgressBar progress={percentage} color={isPassed ? '#2ECC71' : '#E74C3C'} />
             <Text
               className={`text-center font-bold text-[11px] tracking-wider mt-3.5 ${isPassed ? 'text-success' : 'text-danger'}`}
             >
