@@ -43,3 +43,9 @@ yarn-error.*
 # CodeGraph
 .codegraph/
 
+# IDEs and Editors
+.idea/
+*.iml
+.vscode/
+
+
