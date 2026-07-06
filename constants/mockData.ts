@@ -118,8 +118,8 @@ export const MOCK_COURSES: Course[] = [
     lessonsCount: 5,
     level: 'Cơ bản',
     color: '#EC4899', // Hồng
-    progress: 80,
-    currentLesson: 4,
+    progress: 100,
+    currentLesson: 5,
     rating: 4.8,
     students: 2100,
   },
