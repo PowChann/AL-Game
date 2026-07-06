@@ -49,13 +49,13 @@ export default function RootLayout() {
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1, backgroundColor: '#F0F7FF' }}>
+    <GestureHandlerRootView style={{ flex: 1, backgroundColor: '#EFF6FF' }}>
       <SafeAreaProvider>
         <StatusBar style="dark" />
         <Stack
           screenOptions={{
             headerShown: false,
-            contentStyle: { backgroundColor: '#F0F7FF' },
+            contentStyle: { backgroundColor: '#EFF6FF' },
           }}
         >
           <Stack.Screen name="(auth)" options={{ headerShown: false }} />

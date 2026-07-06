@@ -47,5 +47,6 @@ yarn-error.*
 .idea/
 *.iml
 .vscode/
+prompt_gemini_UI_ALGame.md
 
 

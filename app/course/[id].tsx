@@ -44,7 +44,7 @@ export default function CourseDetailScreen() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#F0F7FF' }}>
+    <View style={{ flex: 1, backgroundColor: '#EFF6FF' }}>
       {/* Custom Overlapping Header */}
       <View
         style={{

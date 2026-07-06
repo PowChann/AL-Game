@@ -51,7 +51,7 @@ export default function MyLearningScreen() {
   const emptyState = getEmptyStateContent();
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#F0F7FF', paddingTop: safeTop }}>
+    <View style={{ flex: 1, backgroundColor: '#EFF6FF', paddingTop: safeTop }}>
       <FlatList
         data={displayCourses}
         keyExtractor={(item) => item.id}

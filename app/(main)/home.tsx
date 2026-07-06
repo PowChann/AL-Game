@@ -35,7 +35,7 @@ export default function HomeScreen() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#F0F7FF', paddingTop: safeTop }}>
+    <View style={{ flex: 1, backgroundColor: '#EFF6FF', paddingTop: safeTop }}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{

@@ -102,7 +102,7 @@ export default function LessonVideoScreen() {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        style={{ flex: 1, backgroundColor: '#F0F7FF' }}
+        style={{ flex: 1, backgroundColor: '#EFF6FF' }}
       >
         {/* Custom Header */}
         <View

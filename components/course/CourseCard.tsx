@@ -5,6 +5,7 @@ import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-na
 import { Course } from '../../constants/mockData';
 import { Badge } from '../ui/Badge';
 import { Ionicons } from '@expo/vector-icons';
+import { COLORS } from '../../constants/colors';
 
 interface CourseCardProps {
   course: Course;
@@ -45,28 +46,28 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, variant = 'horiz
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
         style={[animatedStyle]}
-        className="w-[200px] h-[165px] bg-cardBg rounded-[16px] border border-borderLight overflow-hidden mr-4"
+        className="w-[180px] h-[160px] bg-cardBg rounded-[16px] border border-borderLight overflow-hidden mr-4 shadow-sm"
       >
-        {/* Color Banner */}
-        <View style={{ backgroundColor: course.color }} className="h-16 w-full items-center justify-center relative">
-          <Ionicons name="book" size={24} color="#FFFFFE" />
-          <View className="absolute bottom-2 right-2">
-            <Badge label={course.level} variant="neutral" className="bg-black/40 py-0.5 px-1.5" />
+        {/* Thumbnail color area */}
+        <View style={{ backgroundColor: course.color + '15' }} className="h-16 w-full items-center justify-center relative">
+          <Text style={{ fontSize: 24 }}>{course.emoji}</Text>
+          <View className="absolute bottom-1 right-2">
+            <Badge label={course.level} variant="neutral" className="py-0 px-1.5" />
           </View>
         </View>
         
         {/* Info Area */}
         <View className="p-3 justify-between flex-1">
-          <Text className="text-textMain font-heading font-bold text-sm leading-tight" numberOfLines={2}>
+          <Text className="text-textMain font-bold text-sm leading-tight" numberOfLines={2}>
             {course.title}
           </Text>
           <View className="flex-row justify-between items-center mt-1">
-            <Text className="text-textMuted text-[11px] font-body">
+            <Text className="text-textSecondary text-[11px] font-body">
               {course.lessonsCount} bài học
             </Text>
             <View className="flex-row items-center">
-              <Ionicons name="star" size={12} color="#FF8906" />
-              <Text className="text-accent text-[11px] font-bold font-body ml-0.5">
+              <Ionicons name="star" size={12} color={COLORS.orange} />
+              <Text className="text-accent text-[11px] font-bold font-body ml-0.5" style={{ color: COLORS.orange }}>
                 {course.rating}
               </Text>
             </View>
@@ -83,11 +84,11 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, variant = 'horiz
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
       style={[animatedStyle]}
-      className="w-full bg-cardBg rounded-[16px] border border-borderLight p-3.5 flex-row items-center mb-3"
+      className="w-full bg-cardBg rounded-[16px] border border-borderLight p-3 flex-row items-center mb-3 shadow-sm"
     >
-      {/* Thumbnail block */}
-      <View style={{ backgroundColor: course.color }} className="w-16 h-16 rounded-[12px] items-center justify-center mr-4">
-        <Ionicons name="school" size={28} color="#FFFFFE" />
+      {/* Thumbnail 80x80 */}
+      <View style={{ backgroundColor: course.color + '15' }} className="w-20 h-20 rounded-[12px] items-center justify-center mr-4">
+        <Text style={{ fontSize: 32 }}>{course.emoji}</Text>
       </View>
       
       {/* Information block */}
@@ -98,15 +99,15 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, variant = 'horiz
             variant={course.level === 'Cơ bản' ? 'primary' : course.level === 'Trung cấp' ? 'warning' : 'danger'} 
           />
           <View className="flex-row items-center">
-            <Ionicons name="star" size={12} color="#FF8906" />
-            <Text className="text-accent text-xs font-bold font-body ml-0.5">{course.rating}</Text>
+            <Ionicons name="star" size={12} color={COLORS.orange} />
+            <Text className="font-bold font-body ml-0.5 text-xs" style={{ color: COLORS.orange }}>{course.rating}</Text>
           </View>
         </View>
         
-        <Text className="text-textMain font-heading font-bold text-base leading-tight mb-1" numberOfLines={1}>
+        <Text className="text-textMain font-bold text-sm leading-tight mb-1" numberOfLines={1}>
           {course.title}
         </Text>
-        <Text className="text-textMuted text-xs font-body" numberOfLines={1}>
+        <Text className="text-textSecondary text-[12px] font-body" numberOfLines={1}>
           {course.description}
         </Text>
         
@@ -115,7 +116,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, variant = 'horiz
             {course.lessonsCount} bài học · {course.students} học viên
           </Text>
           {course.progress > 0 && (
-            <Text className="text-primary text-[11px] font-bold font-body">
+            <Text className="text-primary text-[11px] font-bold font-body" style={{ color: COLORS.primary }}>
               Đã học {course.progress}%
             </Text>
           )}

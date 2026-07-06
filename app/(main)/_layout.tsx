@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface TabIconProps {
   focused: boolean;
@@ -38,6 +39,10 @@ const TabIcon: React.FC<TabIconProps> = ({ focused, name, color }) => {
 };
 
 export default function MainLayout() {
+  const insets = useSafeAreaInsets();
+  const bottomPadding = insets.bottom > 0 ? insets.bottom : 8;
+  const tabHeight = 52 + bottomPadding;
+
   return (
     <Tabs
       screenOptions={{
@@ -46,8 +51,8 @@ export default function MainLayout() {
           backgroundColor: '#FFFFFF',
           borderTopWidth: 1,
           borderTopColor: '#E5E7EB',
-          height: 65,
-          paddingBottom: 8,
+          height: tabHeight,
+          paddingBottom: bottomPadding,
           paddingTop: 8,
         },
         tabBarActiveTintColor: '#1A6FB5',

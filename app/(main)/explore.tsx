@@ -2,16 +2,14 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, FlatList, Pressable, Platform, StatusBar as RNStatusBar } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { MOCK_COURSES } from '../../constants/mockData';
+import { MOCK_COURSES, CATEGORIES } from '../../constants/mockData';
 import { CourseCard } from '../../components/course/CourseCard';
-
-const CATEGORIES = ['All', 'Bán hàng', 'Lãnh đạo', 'Kỹ năng'];
 
 export default function ExploreScreen() {
   const insets = useSafeAreaInsets();
   const safeTop = insets.top > 0 ? insets.top : (Platform.OS === 'android' ? RNStatusBar.currentHeight || 24 : 20);
   const [search, setSearch] = useState('');
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCategory, setActiveCategory] = useState('Tất cả');
 
   // Filter logic
   const filteredCourses = MOCK_COURSES.filter((course) => {
@@ -21,23 +19,14 @@ export default function ExploreScreen() {
       course.description.toLowerCase().includes(search.toLowerCase());
 
     // Category filter
-    let matchesCategory = true;
-    if (activeCategory === 'Bán hàng') {
-      matchesCategory = course.title.toLowerCase().includes('bán hàng') || course.title.toLowerCase().includes('đàm phán');
-    } else if (activeCategory === 'Lãnh đạo') {
-      matchesCategory = course.title.toLowerCase().includes('lãnh đạo');
-    } else if (activeCategory === 'Kỹ năng') {
-      matchesCategory =
-        course.title.toLowerCase().includes('thuyết trình') ||
-        course.title.toLowerCase().includes('quản lý') ||
-        course.title.toLowerCase().includes('giải quyết');
-    }
+    const matchesCategory =
+      activeCategory === 'Tất cả' || course.category === activeCategory;
 
     return matchesSearch && matchesCategory;
   });
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#F0F7FF', paddingTop: safeTop }}>
+    <View style={{ flex: 1, backgroundColor: '#EFF6FF', paddingTop: safeTop }}>
       <FlatList
         data={filteredCourses}
         keyExtractor={(item) => item.id}
@@ -51,7 +40,7 @@ export default function ExploreScreen() {
           <View className="mb-4">
             {/* Header Title */}
             <Text className="text-textMain font-heading font-bold text-3xl mb-4">
-              Khám phá
+              Khám phá khóa học
             </Text>
 
             {/* Search Bar */}

@@ -106,7 +106,7 @@ export default function GameScreen() {
   const progressPercentage = ((currentIndex + (isAnswerChecked ? 1 : 0)) / quizQuestions.length) * 100;
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#F0F7FF' }}>
+    <View style={{ flex: 1, backgroundColor: '#EFF6FF' }}>
       {/* Header bar */}
       <View
         style={{
