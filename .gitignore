@@ -49,4 +49,7 @@ yarn-error.*
 .vscode/
 prompt_gemini_UI_ALGame.md
 
+# Local planning
+planning/
+
 
