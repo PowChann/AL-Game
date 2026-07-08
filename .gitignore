@@ -53,3 +53,6 @@ prompt_gemini_UI_ALGame.md
 planning/
 
 
+# Environment
+.env
+.env.local
