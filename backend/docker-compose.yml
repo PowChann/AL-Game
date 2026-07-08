@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: al_game
+      POSTGRES_USER: al_game
+      POSTGRES_PASSWORD: al_game
+    ports:
+      - '5433:5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U al_game -d al_game']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - al_game_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  al_game_postgres_data:
