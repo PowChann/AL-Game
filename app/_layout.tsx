@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { View } from 'react-native';
-import { Stack, useRouter, useSegments } from 'expo-router';
+import { Stack, useRouter, useSegments, useRootNavigationState } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts, Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/inter';
 import { SpaceGrotesk_700Bold } from '@expo-google-fonts/space-grotesk';
@@ -20,6 +20,7 @@ export default function RootLayout() {
     SpaceGrotesk_700Bold,
   });
 
+  const rootNavigationState = useRootNavigationState();
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
   const segments = useSegments();
   const router = useRouter();
@@ -32,6 +33,7 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (!fontsLoaded && !fontError) return;
+    if (!rootNavigationState?.key) return;
 
     const inAuthGroup = segments[0] === '(auth)';
 
@@ -42,7 +44,7 @@ export default function RootLayout() {
       // Redirect to home if logged in and in auth group
       router.replace('/home');
     }
-  }, [isLoggedIn, segments, fontsLoaded, fontError]);
+  }, [isLoggedIn, segments, fontsLoaded, fontError, rootNavigationState?.key]);
 
   if (!fontsLoaded && !fontError) {
     return null;
